@@ -1,6 +1,5 @@
-
- ============================================================================
-# FICHIER 12: agents/visualizer_agent.py - Visualisation CORRIGÉE
+# ============================================================================
+# FICHIER: agents/visualizer_agent.py - Agent de visualisation
 # ============================================================================
 
 import matplotlib.pyplot as plt
@@ -30,7 +29,7 @@ class AgroVisualizerAgent(Agent):
                     results = comparison_data["all_results"]
                     
                     # Configurer le style
-                    plt.style.use('default')  # CORRIGÉ
+                    plt.style.use('default')
                     
                     # Créer figure avec sous-graphiques
                     fig, axes = plt.subplots(2, 2, figsize=(16, 12))
@@ -120,7 +119,7 @@ class AgroVisualizerAgent(Agent):
                     # Créer rapport texte
                     self.create_text_report(comparison_data)
                     
-                    plt.close('all')  # CORRIGÉ: Fermer les figures
+                    plt.close('all')
                     
                     print("✅ [VISUALIZER] Tous les rapports générés")
                     print("📁 [VISUALIZER] Fichiers dans 'results/'")
@@ -311,4 +310,4 @@ Fin du rapport - Système Multi-Agent Agricole
         print("🎨 [VISUALIZER] Agent visualiseur agricole initialisé")
         template = Template()
         template.set_metadata("ontology", "comparison_results")
-        self.add_behaviour(self.CreateVisualizationsBehaviour(), template)
+        self.add_behaviour(self.CreateVisual izationsBehaviour(), template)  
