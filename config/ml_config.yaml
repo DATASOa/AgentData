@@ -1,0 +1,74 @@
+# ⚙️ Configuration du système ML Multi-Agents SPADE
+server:
+  host: "localhost"
+  domain: "localhost"
+
+agents:
+  coordinator:
+    jid: "coordinator@localhost"
+    password: "coordinator123"
+  
+  data_manager:
+    jid: "datamanager@localhost"
+    password: "datamanager123"
+    
+  logistic:
+    jid: "logistic@localhost"
+    password: "logistic123"
+    
+  svm:
+    jid: "svm@localhost"
+    password: "svm123"
+    
+  random_forest:
+    jid: "randomforest@localhost"
+    password: "randomforest123"
+    
+  knn:
+    jid: "knn@localhost"
+    password: "knn123"
+    
+  neural_network:
+    jid: "neuralnet@localhost"
+    password: "neuralnet123"
+    
+  comparator:
+    jid: "comparator@localhost"
+    password: "comparator123"
+    
+  visualizer:
+    jid: "visualizer@localhost"
+    password: "visualizer123"
+
+data:
+  file_path: "data/data-final1.csv"
+  test_size: 0.2
+  random_state: 42
+  stratify: true
+
+models:
+  logistic_regression:
+    max_iter: 1000
+    random_state: 42
+    
+  svm:
+    kernel: 'rbf'
+    C: 1.0
+    random_state: 42
+    
+  random_forest:
+    n_estimators: 100
+    random_state: 42
+    
+  knn:
+    n_neighbors: 5
+    
+  neural_network:
+    hidden_layer_sizes: [100, 50]
+    max_iter: 1000 
+    random_state: 42
+
+output:
+  results_dir: "results"
+  save_models: true
+  generate_plots: true 
