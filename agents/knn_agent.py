@@ -1,5 +1,5 @@
 # ============================================================================
-# FICHIER 10: agents/knn_agent.py - KNN
+# FICHIER 9: agents/knn_agent.py - KNN CORRIGÉ
 # ============================================================================
 
 import numpy as np
@@ -102,5 +102,5 @@ class KNNSoilAgent(Agent):
         print("📍 [KNN] Agent KNN pour similarité des sols initialisé")
         template = Template()
         template.set_metadata("ontology", "soil_data")
-        self.add_behaviour(self.TrainKNNBehaviour(), template) 
+        self.add_behaviour(self.TrainKNNBehaviour(), template)
          

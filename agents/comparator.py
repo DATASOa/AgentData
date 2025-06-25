@@ -1,5 +1,5 @@
 # ============================================================================
-# FICHIER 12: agents/comparator_agent.py - Comparaison
+# FICHIER 11: agents/comparator.py - Comparaison CORRIGÉE
 # ============================================================================
 
 import numpy as np
@@ -114,4 +114,5 @@ class AgroComparatorAgent(Agent):
         template = Template()
         template.set_metadata("ontology", "model_results")
         self.add_behaviour(self.CompareModelsBehaviour(), template)
-  
+
+

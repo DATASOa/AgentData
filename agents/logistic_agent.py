@@ -1,10 +1,10 @@
 # ============================================================================
-# FICHIER 7: agents/logistic_agent.py - Régression Logistique
+# FICHIER 6: agents/logistic_agent.py - Régression Logistique CORRIGÉE
 # ============================================================================
 
 import numpy as np
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from spade.agent import Agent
 from spade.behaviour import CyclicBehaviour
 from spade.message import Message
@@ -108,4 +108,6 @@ class LogisticCropAgent(Agent):
         print("🧠 [LOGISTIC] Agent régression logistique initialisé")
         template = Template()
         template.set_metadata("ontology", "soil_data")
-        self.add_behaviour(self.TrainLogisticBehaviour(), template) 
+        self.add_behaviour(self.TrainLogisticBehaviour(), template)
+
+

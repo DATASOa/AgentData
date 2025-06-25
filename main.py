@@ -1,18 +1,18 @@
 # ============================================================================
-# FICHIER 1: main.py - Point d'entrée principal
+# FICHIER 1: main.py - Point d'entrée principal CORRIGÉ
 # ============================================================================
 
 import asyncio
 import sys
 import os
-from agents.coordinator_agent import CoordinatorAgent
-from agents.data_manager_agent import SoilDataManagerAgent
+from agents.coordinator import CoordinatorAgent
+from agents.data_manager import SoilDataManagerAgent
 from agents.logistic_agent import LogisticCropAgent
 from agents.svm_agent import SVMSoilAgent
 from agents.random_forest_agent import ForestCropAgent
 from agents.knn_agent import KNNSoilAgent
 from agents.neural_network_agent import NeuralCropAgent
-from agents.comparator_agent import AgroComparatorAgent
+from agents.comparator import AgroComparatorAgent
 from agents.visualizer_agent import AgroVisualizerAgent
 
 async def main():
@@ -23,9 +23,9 @@ async def main():
     print("=" * 60)
     
     # Vérifier que le fichier de données existe
-    if not os.path.exists('data/datafinal1.csv'):
-        print("❌ Erreur: fichier 'data/datafinal1.csv' non trouvé")
-        print("📁 Placez le fichier dans le dossier data/")
+    if not os.path.exists('datafinal1.csv'):
+        print("❌ Erreur: fichier 'datafinal1.csv' non trouvé")
+        print("📁 Placez le fichier dans le répertoire principal")
         return
     
     # Créer les dossiers nécessaires
@@ -76,4 +76,5 @@ async def main():
                 await agent.stop()
 
 if __name__ == "__main__":
-    asyncio.run(main())  
+    asyncio.run(main())
+ 

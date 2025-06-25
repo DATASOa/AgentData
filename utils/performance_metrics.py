@@ -1,5 +1,5 @@
 # ============================================================================
-# FICHIER 15: utils/performance_metrics.py - Calculs métriques
+# FICHIER 15: utils/performance_metrics.py - Calculs métriques CORRIGÉ
 # ============================================================================
 
 """
@@ -125,4 +125,5 @@ class AgriculturalMetrics:
                 )
                 crop_analysis[crop] = crop_metrics
         
-        return crop_analysis   
+        return crop_analysis
+

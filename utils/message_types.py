@@ -1,5 +1,5 @@
 # ============================================================================
-# FICHIER 14: utils/message_types.py - Types de messages
+# FICHIER 14: utils/message_types.py - Types de messages CORRIGÉ
 # ============================================================================
 
 """
@@ -47,4 +47,5 @@ class MessageStructure:
             "details": details,
             "timestamp": None
         }
-  
+    
+    

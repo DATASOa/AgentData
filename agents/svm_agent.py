@@ -1,5 +1,5 @@
 # ============================================================================
-# FICHIER 8: agents/svm_agent.py - SVM
+# FICHIER 7: agents/svm_agent.py - SVM CORRIGÉ
 # ============================================================================
 
 import numpy as np
@@ -100,3 +100,5 @@ class SVMSoilAgent(Agent):
         template = Template()
         template.set_metadata("ontology", "soil_data")
         self.add_behaviour(self.TrainSVMBehaviour(), template)
+
+

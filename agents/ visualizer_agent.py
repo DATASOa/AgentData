@@ -1,5 +1,6 @@
-# ============================================================================
-# FICHIER 13: agents/visualizer_agent.py - Visualisation
+
+ ============================================================================
+# FICHIER 12: agents/visualizer_agent.py - Visualisation CORRIGÉE
 # ============================================================================
 
 import matplotlib.pyplot as plt
@@ -29,8 +30,7 @@ class AgroVisualizerAgent(Agent):
                     results = comparison_data["all_results"]
                     
                     # Configurer le style
-                    plt.style.use('seaborn-v0_8')
-                    sns.set_palette("husl")
+                    plt.style.use('default')  # CORRIGÉ
                     
                     # Créer figure avec sous-graphiques
                     fig, axes = plt.subplots(2, 2, figsize=(16, 12))
@@ -120,7 +120,7 @@ class AgroVisualizerAgent(Agent):
                     # Créer rapport texte
                     self.create_text_report(comparison_data)
                     
-                    plt.show()
+                    plt.close('all')  # CORRIGÉ: Fermer les figures
                     
                     print("✅ [VISUALIZER] Tous les rapports générés")
                     print("📁 [VISUALIZER] Fichiers dans 'results/'")
@@ -217,8 +217,42 @@ class AgroVisualizerAgent(Agent):
                             <th>Recall</th>
                             <th>F1-Score</th>
                             <th>Temps (s)</th>
-                        </tr>
-            """
+                        </tr>"""
+            
+            for i, result in enumerate(comparison_data['all_results'], 1):
+                html_content += f"""
+                        <tr>
+                            <td>{i}</td>
+                            <td>{result['model_name']}</td>
+                            <td>{result['accuracy']:.4f}</td>
+                            <td>{result['precision']:.4f}</td>
+                            <td>{result['recall']:.4f}</td>
+                            <td>{result['f1_score']:.4f}</td>
+                            <td>{result['training_time']:.2f}</td>
+                        </tr>"""
+            
+            html_content += """
+                    </table>
+                </div>
+            </body>
+            </html>"""
+            
+            with open('results/reports/agricultural_analysis_report.html', 'w', encoding='utf-8') as f:
+                f.write(html_content)
+            
+            print("🌐 [VISUALIZER] Rapport HTML créé")
+        
+        def create_text_report(self, comparison_data):
+            """Créer rapport texte détaillé"""
+            report = f"""
+🌾 RAPPORT D'ANALYSE DES MODÈLES AGRICOLES
+{'='*60}
+Date: {datetime.now().strftime('%d/%m/%Y %H:%M')}
+Système Multi-Agent pour Prédiction d'Irrigation
+
+🏆 CLASSEMENT FINAL:
+{'-'*30}
+"""
             
             for i, result in enumerate(comparison_data['all_results'], 1):
                 emoji = "🥇" if i == 1 else "🥈" if i == 2 else "🥉" if i == 3 else "📊"
@@ -278,55 +312,3 @@ Fin du rapport - Système Multi-Agent Agricole
         template = Template()
         template.set_metadata("ontology", "comparison_results")
         self.add_behaviour(self.CreateVisualizationsBehaviour(), template)
-
-# ============================================================================
-# FICHIER 14: utils/message_types.py - Types de messages
-# ============================================================================
-
-"""
-🔄 Types de messages pour la communication entre agents
-"""
-
-# Types d'ontologies (sujets des messages)
-MESSAGE_ONTOLOGIES = {
-    "START_PROCESSING": "start_processing",
-    "SOIL_DATA": "soil_data",
-    "MODEL_RESULTS": "model_results",
-    "COMPARISON_RESULTS": "comparison_results",
-    "PROCESS_COMPLETE": "process_complete"
-}
-
-# Types de performatives (actions)
-MESSAGE_PERFORMATIVES = {
-    "REQUEST": "request",      # Demande d'action
-    "INFORM": "inform",        # Information/données
-    "CONFIRM": "confirm",      # Confirmation
-    "FAILURE": "failure"       # Échec/erreur
-}
-
-# Structure des messages
-class MessageStructure:
-    """Structure standardisée des messages entre agents"""
-    
-    @staticmethod
-    def create_data_message(data, ontology, performative="inform"):
-        """Créer un message avec données"""
-        return {
-            "ontology": ontology,
-            "performative": performative,
-            "data": data,
-            "timestamp": None  # Sera rempli lors de l'envoi
-        }
-    
-    @staticmethod
-    def create_status_message(status, details=""):
-        """Créer un message de statut"""
-        return {
-            "ontology": "status",
-            "performative": "inform",
-            "status": status,
-            "details": details,
-            "timestamp": None
-        }
-    
-     

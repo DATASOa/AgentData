@@ -1,5 +1,5 @@
 # ============================================================================
-# FICHIER 4: agents/__init__.py
+# FICHIER 3: agents/__init__.py
 # ============================================================================
 
 """
@@ -8,4 +8,4 @@ Système multi-agent pour prédiction d'irrigation
 """
 
 __version__ = "1.0.0"
-__author__ = "Agricultural ML System"   
+__author__ = "Agricultural ML System"  

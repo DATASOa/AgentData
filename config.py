@@ -1,6 +1,5 @@
-
 # ============================================================================
-# FICHIER 2: config.py - Configuration
+# FICHIER 2: config.py - Configuration CORRIGÉE
 # ============================================================================
 
 # Configuration globale du système multi-agent agricole
@@ -8,7 +7,7 @@
 # Adresses des agents
 AGENT_ADDRESSES = {
     "coordinator": "coordinator@localhost",
-    "data_manager": "soilmanager@localhost",
+    "data_manager": "soilmanager@localhost", 
     "logistic": "logistic@localhost",
     "svm": "svm@localhost",
     "random_forest": "forest@localhost",
@@ -20,7 +19,7 @@ AGENT_ADDRESSES = {
 
 # Paramètres des données
 DATA_CONFIG = {
-    "file_path": "data/datafinal1.csv",
+    "file_path": "datafinal1.csv",  # CORRIGÉ: Chemin direct
     "test_size": 0.2,
     "random_state": 42,
     "features": [
@@ -62,17 +61,10 @@ MODEL_PARAMS = {
 
 # Chemins de sauvegarde
 PATHS = {
-    "data": "data/",
+    "data": "./",
     "models": "results/models/",
     "metrics": "results/metrics/",
     "plots": "results/plots/",
     "reports": "results/reports/"
 }
-
-# Types de cultures
-CROP_TYPES = {
-    "cereals": ["rice", "maize"],
-    "legumes": ["chickpea", "kidneybeans", "pigeonpeas", "mothbeans", "mungbean", "blackgram", "lentil"],
-    "fruits": ["banana", "mango", "grapes", "watermelon", "muskmelon", "apple", "orange", "papaya", "coconut"],
-    "others": ["pomegranate", "cotton", "jute", "coffee"]
-} 
+  

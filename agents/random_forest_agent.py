@@ -1,5 +1,5 @@
 # ============================================================================
-# FICHIER 9: agents/random_forest_agent.py - Random Forest
+# FICHIER 8: agents/random_forest_agent.py - Random Forest CORRIGÉ
 # ============================================================================
 
 import numpy as np
@@ -110,3 +110,5 @@ class ForestCropAgent(Agent):
         template = Template()
         template.set_metadata("ontology", "soil_data")
         self.add_behaviour(self.TrainForestBehaviour(), template)
+
+ 

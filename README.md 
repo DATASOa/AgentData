@@ -1,0 +1,168 @@
+"""
+# 🌾 Système Multi-Agent Agricole
+
+## 📖 Description
+Système multi-agent utilisant SPADE pour prédire les besoins d'irrigation des cultures agricoles.
+
+## 🎯 Objectifs
+- Analyser 22 types de cultures différentes
+- Prédire les besoins d'irrigation avec 5 algorithmes ML
+- Comparer automatiquement les performances
+- Générer des rapports détaillés
+
+## 🏗️ Architecture
+```
+📊 DataManager → 🧠 5 Agents ML → 📈 Comparator → 🎨 Visualizer
+```
+
+### Agents du système:
+1. **CoordinatorAgent** - Orchestration générale
+2. **DataManagerAgent** - Preprocessing des données
+3. **LogisticAgent** - Régression logistique
+4. **SVMAgent** - Support Vector Machine  
+5. **RandomForestAgent** - Forêt aléatoire
+6. **KNNAgent** - K plus proches voisins
+7. **NeuralNetworkAgent** - Réseau de neurones
+8. **ComparatorAgent** - Comparaison des modèles
+9. **VisualizerAgent** - Génération de rapports
+
+## 📦 Installation
+
+### Prérequis
+- Python 3.8+
+- pip
+
+### Étapes
+```bash
+# 1. Cloner le projet
+git clone [votre-repo]
+cd agricultural-multiagent
+
+# 2. Installer les dépendances
+pip install -r requirements.txt
+
+# 3. Placer le fichier de données
+# Copier datafinal1.csv dans le répertoire principal
+```
+
+## 📊 Format des données
+Le fichier `datafinal1.csv` doit contenir:
+- Nitrogen, phosphorous, Potassium (NPK du sol)
+- temperature, humidity, ph (conditions)
+- Rainfall Mensuel (mm), Rainfall Annuel (mm)
+- label (type de culture)
+- besoin_irrigation (0/1 - variable cible)
+
+## 🚀 Utilisation
+
+### Test simple (recommandé en premier)
+```bash
+python test_system.py
+```
+
+### Lancement du système complet
+```bash
+python start_system.py
+```
+
+ou directement:
+```bash
+python main.py
+```
+
+## 📁 Structure du projet
+```
+agricultural-multiagent/
+├── main.py                    # Point d'entrée
+├── config.py                  # Configuration
+├── start_system.py           # Script de démarrage
+├── test_system.py            # Test simple
+├── datafinal1.csv            # Données (à ajouter)
+├── requirements.txt          # Dépendances
+├── agents/
+│   ├── __init__.py
+│   ├── coordinator.py
+│   ├── data_manager.py
+│   ├── logistic_agent.py
+│   ├── svm_agent.py
+│   ├── random_forest_agent.py
+│   ├── knn_agent.py
+│   ├── neural_network_agent.py
+│   ├── comparator.py
+│   └── visualizer_agent.py
+├── utils/
+│   ├── __init__.py
+│   ├── message_types.py
+│   └── performance_metrics.py
+└── results/                  # Généré automatiquement
+    ├── models/               # Modèles sauvegardés
+    ├── metrics/              # Métriques JSON
+    ├── plots/                # Graphiques PNG
+    └── reports/              # Rapports HTML/TXT
+```
+
+## 📈 Résultats
+Le système génère automatiquement:
+- **Graphiques de comparaison** (PNG)
+- **Rapports HTML** interactifs
+- **Rapports texte** détaillés
+- **Modèles entraînés** (PKL)
+- **Métriques JSON** pour analyse
+
+## 🔧 Configuration
+Modifiez `config.py` pour:
+- Ajuster les paramètres des modèles
+- Changer les features utilisées
+- Modifier les chemins de sauvegarde
+
+## 🐛 Dépannage
+
+### Erreur "datafinal1.csv not found"
+- Placez le fichier dans le répertoire principal
+
+### Erreur SSL SPADE
+- Normal, le système fonctionne en local
+
+### ImportError
+```bash
+pip install -r requirements.txt
+```
+
+### Erreur de permissions
+```bash
+chmod +x start_system.py
+chmod +x test_system.py
+```
+
+## 📊 Performances attendues
+- **Accuracy**: 85-95% selon les modèles
+- **Temps d'exécution**: 1-3 minutes total
+- **Modèles générés**: 5 algorithmes différents
+- **Rapports**: HTML + TXT + PNG
+
+## 🔬 Métriques agricoles
+Le système calcule:
+- Accuracy, Precision, Recall, F1-Score
+- Efficacité d'irrigation
+- Risque de sécheresse
+- Gaspillage d'eau potentiel
+
+## 📝 Logs
+Les logs sont affichés en temps réel:
+- 🎪 Coordinator
+- 📊 DataManager  
+- 🧠 Modèles ML
+- 📈 Comparator
+- 🎨 Visualizer
+
+## 🤝 Support
+1. Testez d'abord avec `test_system.py`
+2. Vérifiez que `datafinal1.csv` est présent
+3. Consultez les logs pour identifier les erreurs
+
+## 📜 Licence
+MIT License - Libre d'utilisation
+ 
+## 👥 Auteurs
+Système Multi-Agent Agricole v1.0.0 
+"""

@@ -1,5 +1,5 @@
 # ============================================================================
-# FICHIER 5: agents/coordinator_agent.py - Coordinateur
+# FICHIER 4: agents/coordinator.py - Coordinateur CORRIGÉ
 # ============================================================================
 
 import asyncio
@@ -55,4 +55,4 @@ class CoordinatorAgent(Agent):
     async def setup(self):
         print("🎪 [COORDINATOR] Agent coordinateur initialisé")
         self.add_behaviour(self.CoordinateBehaviour())
-  
+ 

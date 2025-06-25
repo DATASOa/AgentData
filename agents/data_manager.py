@@ -1,5 +1,5 @@
 # ============================================================================
-# FICHIER 6: agents/data_manager_agent.py - Gestion des données
+# FICHIER 5: agents/data_manager.py - Gestion des données CORRIGÉE
 # ============================================================================
 
 import pandas as pd
@@ -13,7 +13,7 @@ from spade.template import Template
 import json
 import joblib
 import os
-from config import DATA_CONFIG, AGENT_ADDRESSES
+from config import DATA_CONFIG
 
 class SoilDataManagerAgent(Agent):
     """📊 Agent gestionnaire des données de sol agricole"""
@@ -110,5 +110,6 @@ class SoilDataManagerAgent(Agent):
         print("📊 [SOIL DATA] Agent gestionnaire de données agricoles initialisé")
         template = Template()
         template.set_metadata("ontology", "start_processing")
-        self.add_behaviour(self.ProcessSoilDataBehaviour(), template)  
-         
+        self.add_behaviour(self.ProcessSoilDataBehaviour(), template)
+  
+  

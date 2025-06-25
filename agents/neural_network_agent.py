@@ -1,5 +1,5 @@
 # ============================================================================
-# FICHIER 11: agents/neural_network_agent.py - Réseau de Neurones
+# FICHIER 10: agents/neural_network_agent.py - Réseau de Neurones CORRIGÉ
 # ============================================================================
 
 import numpy as np
@@ -105,4 +105,5 @@ class NeuralCropAgent(Agent):
         template = Template()
         template.set_metadata("ontology", "soil_data")
         self.add_behaviour(self.TrainNeuralBehaviour(), template)
- 
+
+
