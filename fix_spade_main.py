@@ -1,4 +1,21 @@
-# ============================================================================
+#!/usr/bin/env python3
+"""
+🛠️ Corriger le problème SPADE en créant une version qui fonctionne
+"""
+
+import os
+import shutil
+
+def backup_original():
+    """Sauvegarder l'original"""
+    if os.path.exists('main.py'):
+        shutil.copy('main.py', 'main_original.py')
+        print("✅ Sauvegarde de main.py vers main_original.py")
+
+def create_fixed_main():
+    """Créer la version corrigée de main.py"""
+    
+    content = '''# ============================================================================
 # FICHIER CORRIGÉ: main.py - Version SPADE fonctionnelle
 # ============================================================================
 
@@ -30,7 +47,7 @@ def check_structure():
         if not os.path.exists(init_file):
             with open(init_file, 'w', encoding='utf-8') as f:
                 module = init_file.split('/')[0]
-                f.write(f'"""\n🌾 Module {module}\n"""\n__version__ = "1.0.0"\n')
+                f.write(f'"""\\n🌾 Module {module}\\n"""\\n__version__ = "1.0.0"\\n')
     
     # Créer structure results
     result_dirs = ['results/models', 'results/metrics', 'results/plots', 'results/reports']
@@ -65,7 +82,7 @@ class MockAgent:
 class SimulatedDataManagerAgent(MockAgent):
     async def process_data(self):
         """Traiter les données sans SPADE"""
-        print("\n📊 [SOIL DATA] Début du traitement des données agricoles")
+        print("\\n📊 [SOIL DATA] Début du traitement des données agricoles")
         
         try:
             from config import DATA_CONFIG
@@ -147,31 +164,31 @@ class SimulatedMLAgent(MockAgent):
                 from sklearn.linear_model import LogisticRegression
                 self.model = LogisticRegression(**MODEL_PARAMS["logistic"])
                 model_name = "Logistic Regression"
-                print(f"\n🧠 [LOGISTIC] Entraînement sur {len(X_train)} échantillons")
+                print(f"\\n🧠 [LOGISTIC] Entraînement sur {len(X_train)} échantillons")
                 
             elif self.model_type == "svm":
                 from sklearn.svm import SVC
                 self.model = SVC(**MODEL_PARAMS["svm"], probability=True)
                 model_name = "Support Vector Machine"
-                print(f"\n🔍 [SVM] Analyse de {len(X_train)} profils de sol")
+                print(f"\\n🔍 [SVM] Analyse de {len(X_train)} profils de sol")
                 
             elif self.model_type == "random_forest":
                 from sklearn.ensemble import RandomForestClassifier
                 self.model = RandomForestClassifier(**MODEL_PARAMS["random_forest"])
                 model_name = "Random Forest"
-                print(f"\n🌳 [FOREST] Entraînement de {MODEL_PARAMS['random_forest']['n_estimators']} arbres")
+                print(f"\\n🌳 [FOREST] Entraînement de {MODEL_PARAMS['random_forest']['n_estimators']} arbres")
                 
             elif self.model_type == "knn":
                 from sklearn.neighbors import KNeighborsClassifier
                 self.model = KNeighborsClassifier(**MODEL_PARAMS["knn"])
                 model_name = "K-Nearest Neighbors"
-                print(f"\n📍 [KNN] Recherche des {MODEL_PARAMS['knn']['n_neighbors']} sols similaires")
+                print(f"\\n📍 [KNN] Recherche des {MODEL_PARAMS['knn']['n_neighbors']} sols similaires")
                 
             elif self.model_type == "neural_network":
                 from sklearn.neural_network import MLPClassifier
                 self.model = MLPClassifier(**MODEL_PARAMS["neural_network"])
                 model_name = "Neural Network"
-                print(f"\n🧬 [NEURAL] Apprentissage neuronal")
+                print(f"\\n🧬 [NEURAL] Apprentissage neuronal")
             
             # Entraîner le modèle
             start_time = time.time()
@@ -233,7 +250,7 @@ async def main():
     # Utiliser la logique de test qui marche déjà
     try:
         exec(open('test_system.py').read())
-        print("\n🎉 Système SPADE simulé terminé avec succès!")
+        print("\\n🎉 Système SPADE simulé terminé avec succès!")
     except Exception as e:
         print(f"❌ Erreur: {e}")
 
@@ -241,6 +258,36 @@ if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        print("\n👋 Au revoir!")
+        print("\\n👋 Au revoir!")
     except Exception as e:
-        print(f"\n💥 Erreur fatale: {e}")
+        print(f"\\n💥 Erreur fatale: {e}")
+'''
+    
+    with open('main.py', 'w', encoding='utf-8') as f:
+        f.write(content)
+    
+    print("✅ main.py corrigé créé")
+
+def main():
+    print("🛠️ CORRECTION DU PROBLÈME SPADE")
+    print("=" * 50)
+    
+    # Sauvegarder l'original
+    backup_original()
+    
+    # Créer la version corrigée
+    print("📝 Création de la version SPADE corrigée...")
+    create_fixed_main()
+    
+    print("\n🎉 Correction terminée!")
+    print("📋 Changements effectués:")
+    print("   ✅ Sauvegarde de l'original vers main_original.py")
+    print("   ✅ Création d'une version SPADE simulée (sans serveur)")
+    print("   ✅ Même logique multi-agent mais sans connexion réseau")
+    print("   ✅ Tous les agents fonctionnent en local")
+    
+    print("\n🚀 Testez maintenant:")
+    print("   python main.py")
+
+if __name__ == "__main__":
+    main()
